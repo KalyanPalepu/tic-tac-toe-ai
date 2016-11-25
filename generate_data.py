@@ -95,7 +95,7 @@ def generate_data(board):
         f.write(' ' + str(minimax(b)) + '\n')
 
 
-berd = Board(1, [[0, 0, 0], [0, 0, 0], [0, 0, 0]])
-minimax(berd, 0)
+b = Board(1, [[0, 0, 0], [0, 0, 0], [0, 0, 0]])
+minimax(b, 0)
 
 f.close()

@@ -28,6 +28,7 @@ def cost_function(X, Y, t_one, t_two):
 
 
 def performance_measure(X, Y, t_one, t_two):
+    # Non-mathematical performance measure
     Y_hat = expit(np.dot(np.insert(expit(np.dot(X, t_one.T)), 0, 1, axis=1), t_two.T)) # sigmoid(Theta2 * (sigmoid(Theta1 * X)))
     J = 0
     for t in xrange(m):
@@ -38,7 +39,7 @@ def performance_measure(X, Y, t_one, t_two):
         if not np.array_equal(sample, Y[t, :]):
             J += 1
             if np.array_equal(np.array([1.0, 0.0, 0.0]), Y[t, :]):
-                J+=3
+                J += 3
     print
     return J
 
@@ -101,15 +102,3 @@ def performance_measure_wrapper(theta):
     perf = performance_measure(points, values, t_one, t_two)
     print " Iteration " + str(backprop_iter) + "performance: " + str(perf) + "/565545 correct (" + str(int(perf * 100 / float(m))) + "%)"
     return perf
-
-
-
-
-
-# trained_weights = open('weights/trained_weights_test_2.txt', 'w')
-# weights = fmin_cg(cost_function_wrapper, np.hstack((theta_one.ravel(), theta_two.ravel())), fprime=backprop_wrapper, epsilon=0.001, maxiter=5)
-# print weights
-# np.savetxt(trained_weights, weights)
-#
-# print performance_measure(points, values, np.reshape(weights[:110], (10, 11)), np.reshape(weights[110:], (3, 11)))
-# trained_weights.close()

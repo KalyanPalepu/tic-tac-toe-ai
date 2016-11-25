@@ -51,7 +51,7 @@ class Board:
         return False
 
 
-def minimax(board, depth):
+def modified_minimax(board, depth):
     if board.score():
         return board.winner
 

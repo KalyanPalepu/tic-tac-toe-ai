@@ -102,3 +102,8 @@ def performance_measure_wrapper(theta):
     perf = performance_measure(points, values, t_one, t_two)
     print " Iteration " + str(backprop_iter) + "performance: " + str(perf) + "/565545 correct (" + str(int(perf * 100 / float(m))) + "%)"
     return perf
+
+weights = fmin_cg(cost_function_wrapper, np.hstack((theta_one.ravel(), theta_two.ravel())), fprime=backprop_wrapper, epsilon=0.001, maxiter=5)
+print "Weights:"
+print weights
+np.savetxt(trained_weights, weights)

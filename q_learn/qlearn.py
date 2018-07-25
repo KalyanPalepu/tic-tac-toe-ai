@@ -1,6 +1,7 @@
-from board import Board
 import pickle, random, sys, copy, os, minimax
 sys.path.append('..')
+from board import Board
+
 
 # https://www.cs.swarthmore.edu/~meeden/cs63/f11/lab6.php
 
